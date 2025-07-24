@@ -7,14 +7,14 @@ fn main() {
     // Find the length of the first word of a sentence:
     let mut s = String::from("hello world");
 
-    let word = first_word(&s); // word will get the value 5
+    // let word = first_word(&s); // word will get the value 5
 
     s.clear(); // this empties the String, making it equal to ""
     // `word` is now totally invalid, so we need to find a way to keep the length of `s`
     // we don't want to worry about `s` to know if `word` will work or not (can also not be kept in sync)
 
     // String slices: reference to a part of a string
-    let mut s1 = String::from("hello world");
+    let s1 = String::from("hello world");
 
     println!("{s1}");
 
