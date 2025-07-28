@@ -37,6 +37,20 @@ fn main() {
 
     // tuple structs require to name the type when destructuring
     let Color(r,g,b) = red;
+
+    let scale = 20;
+    let rect = Rectangle {
+        width: dbg!(30 * scale),
+        height: 10
+    };
+
+    // println!("{rect:?}'s area is {area} square units.");
+    // println!("{:#?}'s area is {} square units.", rect, area(&rect)); // # prints "structured JSON"
+
+    // !dbg macro: takes ownership, prints file and returns ownership (prints in stderr console instead of stdout)
+    dbg!(&rect);
+
+    // but area is limited, rather want area to be a method to Rectangle.
 }
 
 fn changeEmail(email: String) -> User {
@@ -46,4 +60,14 @@ fn changeEmail(email: String) -> User {
         email, // no need to say `email: email`
         sign_in_count: 1,
     }
+}
+
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32
+}
+
+fn area(rectangle: &Rectangle) -> u32 {
+    rectangle.height * rectangle.width
 }
